@@ -12,7 +12,7 @@ public class bubble {
             String line;
 
             while ((line = reader.readLine()) != null) {
-
+                numbers.add(Integer.parseInt(line));
             }
             reader.close();
 

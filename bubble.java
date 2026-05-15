@@ -20,15 +20,15 @@ public class bubble {
             bubbleSort(numbers);
 
             // 結果を表示
-            System.out.println("ソート後の結果:");
+            System.out.println("result:");
             for (int num : numbers) {
                 System.out.print(num + " ");
             }
 
         } catch (IOException e) {
-            System.out.println("ファイル読み込みエラー: " + e.getMessage());
+            System.out.println("File read error: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("数値変換エラー: " + e.getMessage());
+            System.out.println("Numeric conversion error: " + e.getMessage());
         }
     }
 

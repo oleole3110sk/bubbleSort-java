@@ -1,0 +1,63 @@
+import java.io.*;
+import java.util.*;
+
+public class bubble {
+    public static void main(String[] args) {
+        String fileName = "deta"; // 読み込むファイル名
+
+        try {
+            // ファイルから数値を読み込んでリストに格納
+            List<Integer> numbers = new ArrayList<>();
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                // カンマや空白、改行で分割可能に対応（必要に応じて）
+                String[] parts = line.split("[,\\s]+");
+                for (String part : parts) {
+                    if (!part.isEmpty()) {
+                        numbers.add(Integer.parseInt(part.trim()));
+                    }
+                }
+            }
+            reader.close();
+
+            // バブルソートを実行
+            bubbleSort(numbers);
+
+            // 結果を表示
+            System.out.println("ソート後の結果:");
+            for (int num : numbers) {
+                System.out.print(num + " ");
+            }
+
+        } catch (IOException e) {
+            System.out.println("ファイル読み込みエラー: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("数値変換エラー: " + e.getMessage());
+        }
+    }
+
+    // バブルソートの実装
+    public static void bubbleSort(List<Integer> list) {
+        int n = list.size();
+        boolean swapped;
+
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+
+            for (int j = 0; j < n - i - 1; j++) {
+                if (list.get(j) > list.get(j + 1)) {
+                    // 要素の交換
+                    int temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                    swapped = true;
+                }
+            }
+
+            // もう交換がなければ終了
+            if (!swapped) break;
+        }
+    }
+}

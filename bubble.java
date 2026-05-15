@@ -12,13 +12,7 @@ public class bubble {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                // カンマや空白、改行で分割可能に対応（必要に応じて）
-                String[] parts = line.split("[,\\s]+");
-                for (String part : parts) {
-                    if (!part.isEmpty()) {
-                        numbers.add(Integer.parseInt(part.trim()));
-                    }
-                }
+
             }
             reader.close();
 
@@ -57,7 +51,8 @@ public class bubble {
             }
 
             // もう交換がなければ終了
-            if (!swapped) break;
+            if (!swapped)
+                break;
         }
     }
 }

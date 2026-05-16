@@ -3,7 +3,7 @@ import java.util.*;
 
 public class bubble {
     public static void main(String[] args) {
-        String fileName = "deta"; // 読み込むファイル名
+        String fileName = "deta"; // 用意した数値の羅列ファイル名：deta を入力
 
         try {
             // ファイルから数値を読み込んでリストに格納
